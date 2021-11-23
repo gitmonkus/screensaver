@@ -6,6 +6,7 @@
   --sectionB: #a0deca;
   --button: #b4d8fa;
   --link: #b4fad0;
+  --shadow: #fff;
 }
 
 * {
@@ -19,7 +20,7 @@ body {
   /* padding: 2em; */
   background: var(--background);
   color: var(--text);
-  text-shadow: 2px 2px 2px white;
+  text-shadow: 2px 2px 2px var(--shadow);
   font-family: "Amatic SC", cursive;
 }
 
@@ -37,7 +38,7 @@ img {
   margin: 1em;
   padding: 5px;
   border-radius: 10%;
-  box-shadow: 2px 2px 10px white;
+  box-shadow: 2px 2px 10px var(--shadow);
 }
 #image {
   display: flex;
@@ -48,12 +49,12 @@ button {
   border-radius: 10%;
   border: none;
   background: var(--background);
-  box-shadow: 2px 2px 20px white;
+  box-shadow: 2px 2px 20px var(--shadow);
   color: var(--text);
   font-size: 3em;
   letter-spacing: 2px;
   font-weight: bold;
-  text-shadow: 2px 2px 2px white;
+  text-shadow: 2px 2px 2px var(--shadow);
   padding: 10px 25px;
   margin: 10px;
   transition: all 0.2s ease-in-out;
@@ -76,6 +77,7 @@ button:hover {
 
 .main-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background: var(--background);
 }
@@ -110,7 +112,7 @@ button:hover {
   position: relative;
   top: 70px;
   left: 225px;
-  text-shadow: 2px 2px 6px yellowgreen;
+  text-shadow: 2px 2px 2px yellowgreen;
   transition: all 2s ease-in-out;
   transform: scale(2);
 }
@@ -132,10 +134,7 @@ button:hover {
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
-  /* background: rgb(180, 216, 250); */
+  box-shadow: 2px 2px 20px var(--shadow);
   background: linear-gradient(
     90deg,
     rgba(180, 216, 250, 1) 0%,
@@ -143,7 +142,6 @@ button:hover {
     rgba(180, 250, 208, 1) 93%
   );
   background-size: 300% 1500%;
-  /* animation: orb 10s ease infinite; */
 }
 
 /* X and Y movement of the screensaver and orb */
@@ -154,6 +152,12 @@ button:hover {
 }
 
 @keyframes orb {
+  25% {
+    border-radius: 10% 30% 50% 70%;
+  }
+  50% {
+    border-radius: 30% 15% 55% 45%;
+  }
   100% {
     transform: translateY(calc(50vh));
   }

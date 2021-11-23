@@ -3,11 +3,11 @@ const orb = document.getElementById("orb");
 const countdown = document.getElementById("countdown");
 const imageEl = document.getElementById("image");
 
-// 5 second countdown timer
 let count;
 let timer;
 let idle;
 
+// Image display with Back and Next buttons
 const chickenArray = [
   "../img/chicken/1.JPG",
   "../img/chicken/2.JPG",
@@ -27,16 +27,16 @@ function imageArray() {
   nextEl.addEventListener("click", function () {
     if (imgNumber < imgLength) {
       imgNumber++;
-      imageEl.innerHTML = `<img src="${chickenArray[imgNumber]}" alt="house">`;
-      console.log(`Next button -- imgNumber = ${imgNumber}`);
+      imageEl.innerHTML = `<img src="${chickenArray[imgNumber]}" alt="chicken">`;
+      // console.log(`Next button -- imgNumber = ${imgNumber}`);
     }
   });
 
   backEl.addEventListener("click", function () {
     if (imgNumber > 0) {
       imgNumber--;
-      imageEl.innerHTML = `<img src="${chickenArray[imgNumber]}" alt ="house">`;
-      console.log(`Back button -- imgNumber = ${imgNumber}`);
+      imageEl.innerHTML = `<img src="${chickenArray[imgNumber]}" alt ="chicken">`;
+      // console.log(`Back button -- imgNumber = ${imgNumber}`);
     }
   });
 }
@@ -44,7 +44,7 @@ function imageArray() {
 // This function counts down from 5 - 0
 // Send the count to the paragraph inside the orb
 // Stops the timer when a - count
-// Clears the count from the paragraph inside the orb
+// Clears the count and adds STOP inside the orb
 // Adds animation to the screensaver and orb
 
 function theCountDown() {
@@ -55,36 +55,29 @@ function theCountDown() {
     screensaver.style.animation = "screensaver 13s linear infinite alternate";
     orb.style.animation = "orb 7s linear infinite alternate";
     countdown.textContent = "STOP";
-    countdown.style.fontSize = "20px";
+    countdown.style.fontSize = "40px";
   }
 }
-// Call theCountDown function to start the timer,
-//counting down every 1000ms or 1 second
+
+// Starts the timer and calls theCountDown() to get it all started
 function timerCount() {
   count = 5;
-  console.log(`From timerCount function.  count = ${count}`);
+  // console.log(`From timerCount function.  count = ${count}`);
   timer = setInterval("theCountDown()", 1000);
 }
-// timer = setInterval("theCountDown()", 1000);
 
-orb.addEventListener("mousemove", function () {
+// Mouseover the orb to stop the animation
+// Call timerCount to start all over again
+orb.addEventListener("mouseover", function () {
   screensaver.style.animation = "screensaver 0s";
   orb.style.animation = "orb 0s";
-  // idleTime();
+  countdown.style.fontSize = "100px";
+  window.location.reload();
 });
 
-// NOT SURE YET.... trying to figure out idle...
-// function idleTime() {
-//   window.removeEventListener("mousemove", null);
-//   console.log(`Starting Idle timer.  count = ${count}`);
-//   idle = 5;
-//   while (idle > 0) {
-//     idle--;
-//     if (idle === 0) {
-//       setInterval(timerCount, 5000);
-//     }
-//   }
-// }
-
+// Call theCountDown function to start the timer
+//counting down every 1000ms or 1 second
 timerCount();
+
+// Call the imageArray, so that the Back and Next buttons function
 imageArray();
