@@ -9,11 +9,11 @@ let idle;
 
 // Image display with Back and Next buttons
 const chickenArray = [
-  "../img/chicken/1.JPG",
-  "../img/chicken/2.JPG",
-  "../img/chicken/3.JPG",
-  "../img/chicken/4.JPG",
-  "../img/chicken/5.JPG",
+  "img/chicken/1.JPG",
+  "img/chicken/2.JPG",
+  "img/chicken/3.JPG",
+  "img/chicken/4.JPG",
+  "img/chicken/5.JPG",
 ];
 
 function imageArray() {
