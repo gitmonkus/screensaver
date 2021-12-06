@@ -1,3 +1,3 @@
 # screensaver
 
-https://s-palfreyman.github.io/screensaver/
+https://stevewhocodes.github.io/screensaver/
